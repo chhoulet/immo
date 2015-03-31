@@ -1,0 +1,7 @@
+back_office_homepage:
+    path:     /homepageBackOffice
+    defaults: { _controller: BackOfficeBundle:Default:index }
+
+back_office_navbar:
+    path:     /navbar
+    defaults: { _controller: BackOfficeBundle:Navbar:navbar}

@@ -6,6 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class NavbarController extends Controller
 {
+    public function navigationAction()
+    {
+        return $this -> render('FrontOfficeBundle:Navbar:navbar.html.twig');
+    }
+
 	public function aboutAction()
 	{
 		return $this -> render('FrontOfficeBundle:Navbar:about.html.twig');

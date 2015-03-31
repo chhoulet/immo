@@ -1,6 +1,6 @@
 #Gestion de la homepage :
 front_office_homepage:
-    path:     /homepage
+    path:     /homepageFrontOffice
     defaults: { _controller: FrontOfficeBundle:Homepage:homepage }
 
 #Gestion des Annonces :
@@ -13,6 +13,9 @@ front_office_showOneAnnonce:
     defaults: { _controller: FrontOfficeBundle:Annonce:showOneAnnonce}
 
 #Routes des templates de la navbar :
+front_office_layout_navbar:
+    path:     /navbar
+    defaults: { _controller : FrontOfficeBundle:Navbar:navigation}
 front_office_layout_about:
     path:     /about
     defaults: { _controller: FrontOfficeBundle:Navbar:about}
