@@ -1,3 +1,28 @@
+#Gestion de la homepage :
 front_office_homepage:
     path:     /homepage
     defaults: { _controller: FrontOfficeBundle:Homepage:homepage }
+
+#Gestion des Annonces :
+front_office_showAnnonces:
+    path:     /showAnnonces
+    defaults: { _controller: FrontOfficeController:Annonce:showAnnonces}
+
+front_office_showOneAnnonce:
+    path:     /showOneAnnonce/{id}
+    defaults: { _controller:FrontOfficeBundle:Annonce:showOneAnnonce}
+
+#Routes des templates de la navbar :
+# front_office_layout_about:
+#  	path:     /about 
+#  	defaults: { _controller: FrontOfficeBundle:Navbar:about}
+
+# front_office_layout_blog:
+#  	path:     /blog
+#  	defaults: { _controller: FrontOfficeBundle:Navbar:blog}
+
+# front_office_layout_contact:
+#  	path:     /contact
+#  	defaults: { _controller: FrontOfficeBundle:Navbar:contact}
+
+#Routes des templates du footer -CGU Mentions légales 
