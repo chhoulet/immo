@@ -2,10 +2,6 @@ back_office_homepage:
     path:     /homepageBackOffice
     defaults: { _controller: BackOfficeBundle:Homepage:homepage }
 
-back_office_navbar:
-    path:     /navbar
-    defaults: { _controller: BackOfficeBundle:Navbar:navbar}
-
 back-office_admin_area_create:
     path:     /createArea
     defaults: { _controller: BackOfficeBundle:Area:createArea}
