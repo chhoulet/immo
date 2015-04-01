@@ -16,6 +16,7 @@ front_office_showOneAnnonce:
 front_office_layout_navbar:
     path:     /navbar
     defaults: { _controller : FrontOfficeBundle:Navbar:navigation}
+
 front_office_layout_about:
     path:     /about
     defaults: { _controller: FrontOfficeBundle:Navbar:about}
