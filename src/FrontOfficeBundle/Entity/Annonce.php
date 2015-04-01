@@ -349,4 +349,9 @@ class Annonce
     {
         return $this->area;
     }
+
+    public function __toString()
+    {
+        return $this ->title;
+    }
 }

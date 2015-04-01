@@ -15,10 +15,16 @@ class AreaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameArea')
-            ->add('descriptionArea')
-            ->add('averagePrice')
-            ->add('annonce')
+            ->add('nameArea', 'text',        array('label'=>'Entrez le nom de l\'aire désignée :',
+                                                   'attr' => array('class'      =>'form-control',
+                                                                   'placeholder'=>'Nom de l\'aire')))
+            ->add('descriptionArea','text',  array('label'=>'Entrez un texte de présentation :',
+                                                   'attr' => array('class'      =>'form-control',
+                                                                   'placeholder'=>'Description de l\'aire')))
+            ->add('averagePrice', 'integer', array('label'=>'Prix moyen au m²',
+                                                   'attr' => array('class'      =>'form-control',
+                                                                   'placeholder'=>'0000/m²')))
+            ->add('Valider','submit',        array('attr' => array('class'=>"btn btn-primary")))
         ;
     }
     
