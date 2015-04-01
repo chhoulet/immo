@@ -3,6 +3,10 @@ back_office_homepage:
     defaults: { _controller: BackOfficeBundle:Homepage:homepage }
 
 #Gestion de l'entite Area:
+back-office_admin_area_list:
+    path:     /listArea
+    defaults: { _controller: BackOfficeBundle:Area:listArea}
+
 back-office_admin_area_create:
     path:     /createArea
     defaults: { _controller: BackOfficeBundle:Area:createArea}

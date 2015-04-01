@@ -9,6 +9,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AreaController extends Controller
 {
+    public function listAreaAction()
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $listArea = $em -> getRepository('FrontOfficeBundle:Area')->findAll();
+
+        return $this -> render('BackOfficeBundle:Area:listArea.html.twig', array('listArea'=>$listArea));
+    }
+
     public function createAreaAction(Request $request)
     {
         $em = $this -> getDoctrine()-> getManager();
@@ -27,4 +35,6 @@ class AreaController extends Controller
 
         return $this -> render('BackOfficeBundle:Area:createArea.html.twig', array('formArea'=>$formArea->createView()));
     }
+
+
 }

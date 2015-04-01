@@ -2,15 +2,17 @@
 
     {% block content %}
 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12" style="text-align:left;">
+                            <hr>
+                                <hr>
+                                    <h3>Complétez le formulaire ci-dessous :</h3>
 
-        <div class="row">
-        <div class="col-lg-12" style="text-align:center;">
+                                        {{ form(formArea) }}
 
-                            <h3>Complétez le formulaire ci-dessous :</h3>
-
-                                {{ form(formArea) }}
-
-                        </div>
+                </div>
+            </div>
         </div>
 
     {% endblock %}
