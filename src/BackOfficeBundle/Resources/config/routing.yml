@@ -10,3 +10,7 @@ back-office_admin_area_list:
 back-office_admin_area_create:
     path:     /createArea
     defaults: { _controller: BackOfficeBundle:Area:createArea}
+
+back-office_admin_area_edit:
+    path:     /editArea/{id}
+    defaults: { _controller: BackOfficeBundle:Area:editArea}

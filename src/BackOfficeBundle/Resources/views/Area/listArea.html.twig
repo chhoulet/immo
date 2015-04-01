@@ -14,6 +14,7 @@
                         <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt=""><br>
                         <hr class="visible-xs"><br>
                         <p>{{ area.descriptionArea }}</p><br>
+                        <a href="{{ path('back-office_admin_area_edit',{id:area.id}) }}">Editer cette aire :</a>
                     {% endfor %}
                 <a href="{{ path('back-office_admin_area_create') }}">Créer une nouvelle aire géographique :</a>
             </div>

@@ -36,5 +36,26 @@ class AreaController extends Controller
         return $this -> render('BackOfficeBundle:Area:createArea.html.twig', array('formArea'=>$formArea->createView()));
     }
 
+    public function editAreaAction(Request $request,$id)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $area = $em -> getRepository('FrontOfficeBundle:Area')->find($id);
+        $formEditArea = $this -> createForm(new AreaType(), $area);
+
+        $formEditArea -> handleRequest($request);
+
+        if($formEditArea -> isValid())
+        {
+            $area ->setDateUpdated(new \DateTime('now'));
+            $em -> persist($area);
+            $em->flush();
+
+            return $this -> redirect($this -> generateUrl('back-office_admin_area_list'));
+        }
+
+        return $this -> render('BackOfficeBundle:Area:editArea.html.twig',
+            array('formEditArea'=>$formEditArea->createView()));
+    }
+
 
 }

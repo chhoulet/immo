@@ -43,6 +43,13 @@ class Area
     private $averagePrice;
 
     /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="dateUpdated", type="Date")
+     */
+    private $dateUpdated;
+
+    /**
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\Annonce", inversedBy="area")
@@ -127,5 +134,28 @@ class Area
     public function getAveragePrice()
     {
         return $this->averagePrice;
+    }
+
+    /**
+     * Set annonce
+     *
+     * @param \FrontOfficeBundle\Entity\Annonce $annonce
+     * @return Area
+     */
+    public function setAnnonce(\FrontOfficeBundle\Entity\Annonce $annonce = null)
+    {
+        $this->annonce = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Get annonce
+     *
+     * @return \FrontOfficeBundle\Entity\Annonce 
+     */
+    public function getAnnonce()
+    {
+        return $this->annonce;
     }
 }

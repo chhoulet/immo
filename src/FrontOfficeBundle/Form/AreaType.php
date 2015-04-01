@@ -24,7 +24,8 @@ class AreaType extends AbstractType
             ->add('averagePrice', 'integer', array('label'=>'Prix moyen au m²',
                                                    'attr' => array('class'      =>'form-control',
                                                                    'placeholder'=>'0000/m²')))
-            ->add('Valider','submit',        array('attr' => array('class'=>"btn btn-primary")))
+            ->add('Valider','submit',        array('attr' => array('class'      =>"btn btn-primary",
+                                                                   'style'      =>'margin-top:26px;margin-left:530px;margin-bottom:40px;')))
         ;
     }
     
