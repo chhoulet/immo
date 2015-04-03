@@ -30,3 +30,10 @@ front_office_layout_contact:
     defaults: { _controller: FrontOfficeBundle:Navbar:contact}
 
 #Routes des templates du footer -CGU Mentions légales 
+front_office_static_conditions_generales_ventes:
+    path:     /conditionsGenerales
+    defaults: { _controller: FrontOfficeBundle:Static:conditions}
+
+front_office_static_mentionslegales:
+    path:     /mentionsLegales
+    defaults: { _controller:FrontOfficeBundle:Static:mentions}
