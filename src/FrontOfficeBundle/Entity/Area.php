@@ -46,7 +46,7 @@ class Area
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateUpdated", type="datetime")
+     * @ORM\Column(name="dateUpdated", type="datetime", nullable=true)
      */
     private $dateUpdated;
 
@@ -163,10 +163,10 @@ class Area
     /**
      * Set dateUpdated
      *
-     * @param \Date $dateUpdated
+     * @param \DateTime $dateUpdated
      * @return Area
      */
-    public function setDateUpdated(\Date $dateUpdated)
+    public function setDateUpdated(\DateTime $dateUpdated)
     {
         $this->dateUpdated = $dateUpdated;
 
@@ -176,7 +176,7 @@ class Area
     /**
      * Get dateUpdated
      *
-     * @return \Date 
+     * @return \DateTime
      */
     public function getDateUpdated()
     {
