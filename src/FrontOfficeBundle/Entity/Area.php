@@ -3,6 +3,7 @@
 namespace FrontOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * Area
@@ -45,7 +46,7 @@ class Area
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateUpdated", type="date")
+     * @ORM\Column(name="dateUpdated", type="datetime")
      */
     private $dateUpdated;
 
