@@ -18,7 +18,7 @@ class AnnonceController extends Controller
     public function showOneAnnonceAction($id)
     {
         $em = $this -> getDoctrine() ->getManager();
-        $showOneAnnonce = $em ->getRepository('FrontOfficeBunble:Annonce')->find($id);
+        $showOneAnnonce = $em ->getRepository('FrontOfficeBundle:Annonce')->find($id);
 
         return $this -> render('FrontOfficeBundle:Annonce:showOneAnnonce.html.twig', array('showOneAnnonce'=>$showOneAnnonce));
     }

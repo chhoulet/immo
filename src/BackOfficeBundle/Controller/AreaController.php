@@ -57,5 +57,14 @@ class AreaController extends Controller
             array('formEditArea'=>$formEditArea->createView()));
     }
 
+    public function suppAreaAction($id)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $suppArea = $em -> getRepository('FrontOfficeBundle:Area')->find($id);
+        $em -> remove($suppArea);
+        $em -> flush();
+
+        return $this -> redirect($this->generateUrl('back-office_admin_area_list'));
+    }
 
 }

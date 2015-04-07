@@ -11,25 +11,23 @@
 
     <title>Immo Neuf BackOffice</title>
 
-
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/business-casual.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/shop-item.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-
     <!-- MetisMenu CSS -->
     <link href="{{ asset('bower_components/metisMenu/dist/metisMenu.min.css') }}" rel="stylesheet">
-
     <!-- Timeline CSS -->
     <link href="{{ asset('dist/css/timeline.css') }}" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="{{ asset('dist/css/sb-admin-2.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/heroic-features.css') }}" rel="stylesheet">
     <!-- Morris Charts CSS -->
     <link href="{{ asset('bower_components/morrisjs/morris.css') }}" rel="stylesheet">
-
+    <!-- Custom CSS -->
     <!-- Custom Fonts -->
     <link href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-
-
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -39,7 +37,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif]
 
 </head>
 
@@ -59,7 +57,12 @@
             <a class="navbar-brand" href="{{ path('back_office_homepage') }}">Accueil Back-Office</a>
         </div>
         <!-- /.navbar-header -->
-
+        <ul class="nav navbar-top-links navbar-left">
+            <li class="dropdown">
+            <li>
+                <a href="{{ path('back_office_homepage') }}">Accueil Back-Office</a>
+            </li>
+        </ul>
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
             <li>

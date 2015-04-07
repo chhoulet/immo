@@ -14,3 +14,7 @@ back-office_admin_area_create:
 back-office_admin_area_edit:
     path:     /editArea/{id}
     defaults: { _controller: BackOfficeBundle:Area:editArea}
+
+back-office_admin_area_suppression:
+    path:     /suppArea/{id}
+    defaults: { _controller: BackOfficeBundle:Area:suppArea}

@@ -14,8 +14,10 @@
                         <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt=""><br>
                         <hr class="visible-xs"><br>
                         <p>{{ area.descriptionArea }}</p><br>
+                        <p>Dernière mise à jour : {{ area.dateUpdated | date('d-m-Y H:i:s') }}</p>
                         <a href="{{ path('back-office_admin_area_edit',{id:area.id}) }}">Editer cette aire :</a>
-                    {% endfor %}
+                        <a href="{{ path('back-office_admin_area_suppression',{id:area.id}) }}" class="btn btn-default">Supprimer cette aire</a>
+                    {% endfor %}<br><br>
                 <a href="{{ path('back-office_admin_area_create') }}">Créer une nouvelle aire géographique :</a>
             </div>
         </div>

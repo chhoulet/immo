@@ -6,7 +6,7 @@ front_office_homepage:
 #Gestion des Annonces :
 front_office_showAnnonces:
     path:     /showAnnonces
-    defaults: { _controller: FrontOfficeController:Annonce:showAnnonces}
+    defaults: { _controller: FrontOfficeBundle:Annonce:showAnnonces}
 
 front_office_showOneAnnonce:
     path:     /showOneAnnonce/{id}

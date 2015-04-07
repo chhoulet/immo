@@ -12,6 +12,8 @@ class HomepageController extends Controller
     public function homepageAction(Request $request)
     {
         $em = $this -> getDoctrine()->getManager();
+
+        #Formulaire de dépôt d'annonce :
         $annonce = new Annonce();
         $formAnnonce = $this -> createForm(new AnnonceType(),$annonce);
 
@@ -27,6 +29,10 @@ class HomepageController extends Controller
 
             return $this -> redirect($this->generateUrl('front_office_homepage'));
         }
+
+        #Formulaire de tri multiple des annonces :
+        $annonces = $em -> getRepository('FrontOfficeBundle:Annonces')->RequeteSQL();
+        $formCriteres =
 
         return $this->render('FrontOfficeBundle:Homepage:homepage.html.twig',
             array('formAnnonce'=> $formAnnonce->createView()));
