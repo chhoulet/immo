@@ -30,9 +30,21 @@ class HomepageController extends Controller
             return $this -> redirect($this->generateUrl('front_office_homepage'));
         }
 
-        
+        #Formulaire de tri multiple des annonces :
+        $formCriteres = $this -> createForm(new TriAnnonceType());
+
+        $formCriteres -> handleRequest($request);
+
+        if($formCriteres -> isValid()){
+            $data = $formCriteres ->getData();
+            $datas = $em ->getRepository('FrontOfficeBundle:Annonce')->getAnnonces($data['price','surfaceArea','area']);
+
+            return $this -> render('FrontOfficeBundle:Annonce:showAnnonces.html.twig', array('showAnnonces'=>$datas));
+        }
+
         return $this->render('FrontOfficeBundle:Homepage:homepage.html.twig',
-            array('formAnnonce'=> $formAnnonce->createView()));
+            array('formAnnonce' => $formAnnonce -> createView(),
+                  'formCriteres'=> $formCriteres-> createView()));
     }
 }
 
