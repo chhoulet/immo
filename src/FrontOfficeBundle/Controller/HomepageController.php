@@ -5,6 +5,7 @@ namespace FrontOfficeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FrontOfficeBundle\Form\AnnonceType;
+use FrontOfficeBundle\Form\TriAnnonceType;
 use FrontOfficeBundle\Entity\Annonce;
 
 class HomepageController extends Controller
@@ -37,11 +38,11 @@ class HomepageController extends Controller
 
         if($formCriteres -> isValid()){
             $data = $formCriteres ->getData();
-            $datas = $em ->getRepository('FrontOfficeBundle:Annonce')->getAnnonces($data['price','surfaceArea','area']);
+            $datas = $em ->getRepository('FrontOfficeBundle:Annonce')->getAnnonces($data['price'], $data['surfaceArea'],$data['area']);
 
             return $this -> render('FrontOfficeBundle:Annonce:showAnnonces.html.twig', array('showAnnonces'=>$datas));
         }
-
+ 
         return $this->render('FrontOfficeBundle:Homepage:homepage.html.twig',
             array('formAnnonce' => $formAnnonce -> createView(),
                   'formCriteres'=> $formCriteres-> createView()));
