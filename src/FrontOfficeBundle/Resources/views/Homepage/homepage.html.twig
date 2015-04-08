@@ -88,11 +88,36 @@
 
                         {{ form(formCriteres) }}</p>
                     </div>
+
+                    <button id="save"> + critères </button>
+                    <div id="choix" style="display:none;">
+                        <form>
+                            <label for="immo">Entrez votre choix :</label>
+                            <input id="immo" type="text" />
+                        </form>
+                    </div>
                 </div>
             </div>
+
+
 
         </div>
         <!-- /.container -->
     {% endblock %}
 
-        
+    {% block js %}
+        {{ parent() }}
+
+        <script>
+            $(function() {
+
+                $('#save').click(function() {
+                    //alert('coucou');
+                    $('#choix').slideDown();
+                });
+
+            });
+        </script>
+
+
+    {% endblock %}
