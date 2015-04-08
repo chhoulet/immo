@@ -18,14 +18,30 @@ class AnnonceType extends AbstractType
             ->add('title')
             ->add('price')
             ->add('username')
-            ->add('estate')
+            ->add('dateCreated')
+            ->add('dateUpdated')
+            ->add('estate','choice', array('label'  =>'Type du bien :',
+                                           'attr'   => array('class'=>'form-control'),
+                                           'choices' => array('0' =>'appartement',
+                                                             '1' =>'maison',
+                                                             '2' =>'loft',
+                                                             '3' =>'studio',
+                                                             '4' =>'autre')))
             ->add('nbRooms')
             ->add('surfaceArea')
             ->add('description')
-            ->add('Valider','submit')
+            ->add('colocation')
+            ->add('bailDuration')
+            ->add('disponibility')
+            ->add('arrangement')
+            ->add('building')
+            ->add('charge')
+            ->add('dependancy')
+            ->add('externArea')
+            ->add('heating')
         ;
     }
-
+    
     /**
      * @param OptionsResolverInterface $resolver
      */

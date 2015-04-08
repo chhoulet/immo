@@ -52,7 +52,7 @@ class Annonce
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateUpdated", type="date")
+     * @ORM\Column(name="dateUpdated", type="date", nullable=true)
      */
     private $dateUpdated;
 
@@ -83,6 +83,69 @@ class Annonce
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="colocation", type="text")
+     */
+    private $colocation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bailDuration", type="text")
+     */
+    private $bailDuration;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="disponibility", type="text")
+     */
+    private $disponibility;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="arrangement", type="text")
+     */
+    private $arrangement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="building", type="text")
+     */
+    private $building;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="charge", type="text")
+     */
+    private $charge;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dependancy", type="text")
+     */
+    private $dependancy;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="externArea", type="text")
+     */
+    private $externArea;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="heating", type="text")
+     */
+    private $heating;
 
     /**
      * @var string
@@ -308,5 +371,258 @@ class Annonce
     public function getPrice()
     {
         return $this->price;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->area = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add area
+     *
+     * @param \FrontOfficeBundle\Entity\Area $area
+     * @return Annonce
+     */
+    public function addArea(\FrontOfficeBundle\Entity\Area $area)
+    {
+        $this->area[] = $area;
+
+        return $this;
+    }
+
+    /**
+     * Remove area
+     *
+     * @param \FrontOfficeBundle\Entity\Area $area
+     */
+    public function removeArea(\FrontOfficeBundle\Entity\Area $area)
+    {
+        $this->area->removeElement($area);
+    }
+
+    /**
+     * Get area
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    public function __toString()
+    {
+        return $this ->title;
+    }
+
+    /**
+     * Set colocation
+     *
+     * @param string $colocation
+     * @return Annonce
+     */
+    public function setColocation($colocation)
+    {
+        $this->colocation = $colocation;
+
+        return $this;
+    }
+
+    /**
+     * Get colocation
+     *
+     * @return string 
+     */
+    public function getColocation()
+    {
+        return $this->colocation;
+    }
+
+
+    /**
+     * Set bailDuration
+     *
+     * @param string $bailDuration
+     * @return Annonce
+     */
+    public function setBailDuration($bailDuration)
+    {
+        $this->bailDuration = $bailDuration;
+
+        return $this;
+    }
+
+    /**
+     * Get bailDuration
+     *
+     * @return string 
+     */
+    public function getBailDuration()
+    {
+        return $this->bailDuration;
+    }
+
+    /**
+     * Set disponibility
+     *
+     * @param string $disponibility
+     * @return Annonce
+     */
+    public function setDisponibility($disponibility)
+    {
+        $this->disponibility = $disponibility;
+
+        return $this;
+    }
+
+    /**
+     * Get disponibility
+     *
+     * @return string 
+     */
+    public function getDisponibility()
+    {
+        return $this->disponibility;
+    }
+
+    /**
+     * Set arrangement
+     *
+     * @param string $arrangement
+     * @return Annonce
+     */
+    public function setArrangement($arrangement)
+    {
+        $this->arrangement = $arrangement;
+
+        return $this;
+    }
+
+    /**
+     * Get arrangement
+     *
+     * @return string 
+     */
+    public function getArrangement()
+    {
+        return $this->arrangement;
+    }
+
+    /**
+     * Set building
+     *
+     * @param string $building
+     * @return Annonce
+     */
+    public function setBuilding($building)
+    {
+        $this->building = $building;
+
+        return $this;
+    }
+
+    /**
+     * Get building
+     *
+     * @return string 
+     */
+    public function getBuilding()
+    {
+        return $this->building;
+    }
+
+    /**
+     * Set charge
+     *
+     * @param string $charge
+     * @return Annonce
+     */
+    public function setCharge($charge)
+    {
+        $this->charge = $charge;
+
+        return $this;
+    }
+
+    /**
+     * Get charge
+     *
+     * @return string 
+     */
+    public function getCharge()
+    {
+        return $this->charge;
+    }
+
+    /**
+     * Set dependancy
+     *
+     * @param string $dependancy
+     * @return Annonce
+     */
+    public function setDependancy($dependancy)
+    {
+        $this->dependancy = $dependancy;
+
+        return $this;
+    }
+
+    /**
+     * Get dependancy
+     *
+     * @return string 
+     */
+    public function getDependancy()
+    {
+        return $this->dependancy;
+    }
+
+    /**
+     * Set externArea
+     *
+     * @param string $externArea
+     * @return Annonce
+     */
+    public function setExternArea($externArea)
+    {
+        $this->externArea = $externArea;
+
+        return $this;
+    }
+
+    /**
+     * Get externArea
+     *
+     * @return string 
+     */
+    public function getExternArea()
+    {
+        return $this->externArea;
+    }
+
+    /**
+     * Set heating
+     *
+     * @param string $heating
+     * @return Annonce
+     */
+    public function setHeating($heating)
+    {
+        $this->heating = $heating;
+
+        return $this;
+    }
+
+    /**
+     * Get heating
+     *
+     * @return string 
+     */
+    public function getHeating()
+    {
+        return $this->heating;
     }
 }
