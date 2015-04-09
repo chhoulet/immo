@@ -17,8 +17,8 @@ class AnnonceRepository extends EntityRepository
         $query = $this -> getEntityManager()->createQuery('
             SELECT a
             FROM FrontOfficeBundle:Annonce a
-            WHERE a.price Like :prix
-            AND a.surfaceArea Like :surface
+            WHERE a.price < :prix
+            AND a.surfaceArea >= :surface
             AND a.area Like :area')
         ->setParameter('prix', $price)
         ->setParameter('surface',$surfaceArea)
