@@ -5,6 +5,7 @@ namespace FrontOfficeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FrontOfficeBundle\Form\TriAnnonceType;
 use FrontOfficeBundle\Entity\Annonce;
+use Symfony\Component\Httpfoundation\Request;
 
 class HomepageController extends Controller
 {
