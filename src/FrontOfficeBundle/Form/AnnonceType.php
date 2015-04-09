@@ -15,31 +15,115 @@ class AnnonceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('price')
-            ->add('username')
-            ->add('dateCreated')
-            ->add('dateUpdated')
-            ->add('estate','choice', array('label'  =>'Type du bien :',
-                                           'attr'   => array('class'=>'form-control'),
-                                           'choices' => array('0' =>'appartement',
-                                                             '1' =>'maison',
-                                                             '2' =>'loft',
-                                                             '3' =>'studio',
-                                                             '4' =>'autre')))
-            ->add('nbRooms')
-            ->add('surfaceArea')
-            ->add('description')
-            ->add('colocation')
-            ->add('bailDuration')
-            ->add('disponibility')
-            ->add('arrangement')
-            ->add('building')
-            ->add('charge')
-            ->add('dependancy')
-            ->add('externArea')
-            ->add('heating')
-        ;
+            ->add('title', 'text',              array('label'   =>'Titre de l\'annonce',
+                                                      'attr'    => array('class'=>'form-control',
+                                                                         'placeholder'=>'Titre de votre annonce')))
+
+            ->add('price', 'text',              array('label'   =>'Prix max par mois',
+                                                      'attr'    => array('class'=>'form-control',
+                                                                         'placeholder'=>'0000 €/mois')))
+
+            ->add('username', 'text',           array('label'   =>'Entrez votre nom d\'utilisateur :',
+                                                      'attr'    => array('class'  =>'form-control',
+                                                                         'placeholder'=>'Username')))
+
+            ->add('estate','choice',            array('label'   =>'Type du bien :',
+                                                      'attr'    =>  array('class' =>'form-control'),
+                                                      'choices' =>  array('0'     =>'appartement',
+                                                                          '1'     =>'maison',
+                                                                          '2'     =>'loft',
+                                                                          '3'     =>'studio',
+                                                                          '4'     =>'autre')))
+
+            ->add('nbRooms', 'choice',           array('label'  =>'Nombre de pièces :',
+                                                       'attr'   => array('class'=> 'form-control'),
+                                                       'choices'=> array('0'=> 1,
+                                                                         '1'=> 2,
+                                                                         '2'=> 3,
+                                                                         '3'=> 4,
+                                                                         '4'=> 5,
+                                                                         '5'=> '+')))
+
+            ->add('surfaceArea','text',          array('label'  =>'Surface :',
+                                                       'attr'   => array('class'=> 'form-control',
+                                                                         'placeholder'=>'Nombre de m²')))
+
+            ->add('description','text',          array('label'  =>'Description :',
+                                                       'attr'   => array('class'=> 'form-control')))
+
+            ->add('colocation', 'choice',        array('label'  =>'Colocation :',
+                                                       'attr'   => array('class'=> 'form-control'),
+                                                       'choices'=> array('0'=> 'non',
+                                                                         '1'=> 'oui')))
+
+            ->add('bailDuration', 'choice',      array('label'  =>'Durée du bail :',
+                                                       'attr'   => array('class'=> 'form-control'),
+                                                       'choices'=> array('0'=> 'Courte durée',
+                                                                         '1'=> 'Longue durée')))
+
+            ->add('disponibility', 'choice',     array('label'  =>'Disponibilité :',
+                                                       'attr'   => array('class'=> 'form-control'),
+                                                       'choices'=> array('0'=> 'Immédiatement',
+                                                                         '1'=> 'ultérieurement')))
+
+            ->add('arrangement', 'choice',       array('label'  =>'Aménagement :',
+                                                       'attr'   => array('class'=> 'form-control'),
+                                                       'choices'=> array('0'=> 'Parquet',
+                                                                         '1'=> 'Moulures',
+                                                                         '2'=> 'Cheminée',
+                                                                         '3'=> 'Double Vitrage',
+                                                                         '4'=> 'Toilettes Séparées',
+                                                                         '5'=> 'Rangements',
+                                                                         '6'=> 'Cuisine équipée',
+                                                                         '7'=> 'Vue sur Cour',
+                                                                         '8'=> 'Vue sur Rue',
+                                                                         '9'=> 'Très lumineux',
+                                                                         '10'=> 'Calme',
+                                                                         '11'=> 'Rénové',
+                                                                         '12'=> 'Parquet',
+                                                                         '13'=> 'Mezzanine',
+                                                                         '14'=> 'Poutres apparentes',
+                                                                         '15'=> 'Bon état')))
+
+            ->add('building', 'choice',          array('label'  =>'Immeuble :',
+                                                       'attr'   => array('class'=> 'form-control'),
+                                                       'choices'=> array('0'=> 'Neuf',
+                                                                         '1'=> 'Ancien',
+                                                                         '2'=> 'Rénové',
+                                                                         '3'=> 'Digicode - Interphone',
+                                                                         '4'=> 'Gardien',
+                                                                         '5'=> 'Pierre de Taille')))
+
+            ->add('charge', 'choice',           array('label'   =>'Loyer :',
+                                                      'attr'    => array('class'=> 'form-control'),
+                                                      'choices' => array('0'=> 'Internet inclus',
+                                                                         '1'=> 'chauffage inclus',
+                                                                         '2'=> 'APL possibles')))
+
+            ->add('dependancy', 'choice',       array('label'  =>'Dépendances :',
+                                                      'attr'   => array('class'=> 'form-control'),
+                                                      'choices'=> array('0'=> 'Cave',
+                                                                         '1'=> 'Parking',
+                                                                         '2'=> 'Box fermé',
+                                                                         '3'=> 'Aucune dépendance')))
+
+            ->add('externArea', 'choice',       array('label'  =>'Espaces extérieurs :',
+                                                      'attr'   => array('class'=> 'form-control'),
+                                                      'choices'=> array('0'=> 'Jardin',
+                                                                        '1'=> 'Terrasse',
+                                                                        '2'=> 'Balcon',
+                                                                        '3'=> 'Piscine',
+                                                                        '4'=> 'Véranda')))
+
+            ->add('heating', 'choice',         array('label'  =>'Chauffage :',
+                                                     'attr'   => array('class'=> 'form-control'),
+                                                     'choices'=> array('0'=> 'Chauffage au sol',
+                                                                       '1'=> 'Chauffage central',
+                                                                       '2'=> 'Chauffage gaz',
+                                                                       '3'=> 'Chauffage électrique',
+                                                                       '4'=> 'Chauffage individuel')))
+            ->add('Enregistrer','submit',      array('attr'  => array('class'=>'form-control')))
+                                                ;
     }
     
     /**
