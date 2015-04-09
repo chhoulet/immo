@@ -61,7 +61,12 @@
                         <img class="img-responsive img-border img-left" src="../img/paris.jpg" alt="Paris">
                         <hr class="visible-xs">
                         <p><h3>Choisissez votre location à Paris :</h3></p>
-                        <p>     {{ form(formCriteres) }} </p>
+                        <div class = "row>">
+                            <div class="col-lg-6">
+                                <p>     {{ form(formCriteres) }} </p>
+                            </div>
+                        </div>
+
                         <hr>
                         <button id="save"> + critères </button>
                         <div id="choix" style="display:none;">
@@ -69,7 +74,7 @@
                                 <label for="immo">Entrez votre choix :</label>
                                 <input id="immo" type="text" />
                             </form>
-                        </div>
+                        </div><br><br>
                         <a href="{{ path('front_office_showAnnonces') }}">Liste des annonces :</a>
                     </div>
                 </div>
