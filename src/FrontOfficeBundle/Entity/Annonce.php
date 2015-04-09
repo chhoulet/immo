@@ -3,6 +3,7 @@
 namespace FrontOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Annonce
@@ -23,6 +24,12 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = "10",
+     *      max = "50",
+     *      minMessage = "Votre titre doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre titre ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="title", type="string", length=255)
      */
@@ -37,13 +44,19 @@ class Annonce
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = "4",
+     *      max = "50",
+     *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
+     * )
      * @ORM\Column(name="username", type="string", length=255)
      */
     private $username;
 
     /**
      * @var \DateTime
+     * @Assert\DateTime()
      *
      * @ORM\Column(name="dateCreated", type="date")
      */
@@ -51,6 +64,7 @@ class Annonce
 
     /**
      * @var \DateTime
+     * @Assert\DateTime()
      *
      * @ORM\Column(name="dateUpdated", type="date", nullable=true)
      */
@@ -58,6 +72,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="estate", type="string", length=255)
      */
@@ -65,6 +80,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="nbRooms", type="string", length=255)
      */
@@ -72,6 +88,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="surfaceArea", type="string", length=255)
      */
@@ -79,6 +96,12 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = "15",
+     *      max = "250",
+     *      minMessage = "Votre descriptif doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre descriptif ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="description", type="text")
      */
@@ -86,6 +109,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="colocation", type="text")
      */
@@ -93,6 +117,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="bailDuration", type="text")
      */
@@ -100,6 +125,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="disponibility", type="text")
      */
@@ -107,6 +133,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="arrangement", type="text")
      */
@@ -114,6 +141,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="building", type="text")
      */
@@ -121,6 +149,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="charge", type="text")
      */
@@ -128,6 +157,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="dependancy", type="text")
      */
@@ -135,6 +165,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="externArea", type="text")
      */
@@ -142,6 +173,7 @@ class Annonce
 
     /**
      * @var string
+     * @Assert\NotBlank()
      *
      * @ORM\Column(name="heating", type="text")
      */
