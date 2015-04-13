@@ -16,11 +16,6 @@ class NavbarController extends Controller
 		return $this -> render('FrontOfficeBundle:Navbar:about.html.twig');
 	}
 
-	public function blogAction()
-	{
-		return $this -> render('FrontOfficeBundle:Navbar:blog.html.twig');
-	}
-
 	public function contactAction()
 	{
 		return $this -> render('FrontOfficeBundle:Navbar:contact.html.twig');

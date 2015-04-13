@@ -25,13 +25,14 @@ front_office_layout_about:
     path:     /about
     defaults: { _controller: FrontOfficeBundle:Navbar:about}
 
-front_office_layout_blog:
-    path:     /blog
-    defaults: { _controller: FrontOfficeBundle:Navbar:blog}
-
 front_office_layout_contact:
     path:     /contact
     defaults: { _controller: FrontOfficeBundle:Navbar:contact}
+
+#Routes des templates du blog :
+front_office_blog_showArticles:
+    path:     /showArticles
+    defaults: { _controller:FrontOfficeBundle:Blog:showArticles}
 
 #Routes des templates du footer -CGU Mentions légales 
 front_office_static_conditions_generales_ventes:
