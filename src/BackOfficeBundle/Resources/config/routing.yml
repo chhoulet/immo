@@ -18,3 +18,8 @@ back-office_admin_area_edit:
 back-office_admin_area_suppression:
     path:     /suppArea/{id}
     defaults: { _controller: BackOfficeBundle:Area:suppArea}
+
+#Gestion des Articles:
+back_office_admin_articles:
+    path:     /createArticle
+    defaults: { _controller:BackOfficeBundle:Article:createArticle}
