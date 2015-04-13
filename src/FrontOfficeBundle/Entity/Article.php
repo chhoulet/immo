@@ -56,6 +56,14 @@ class Article
      */
     private $dateUpdated;
 
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="FrontOfficeBundle\Entity\Comment", mappedBy="article")
+     */
+    private $comment;
+
+
 
     /**
      * Get id

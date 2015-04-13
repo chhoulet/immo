@@ -42,6 +42,15 @@ class Comment
      */
     private $content;
 
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="FrontOfficeBundle\Entity\Article", inversedBy="comment")
+     * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
+     */
+    private $article;
+
+
 
     /**
      * Get id
