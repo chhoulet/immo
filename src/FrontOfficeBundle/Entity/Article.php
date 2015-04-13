@@ -52,7 +52,7 @@ class Article
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateUpdated", type="datetime")
+     * @ORM\Column(name="dateUpdated", type="datetime", nullable=true)
      */
     private $dateUpdated;
 

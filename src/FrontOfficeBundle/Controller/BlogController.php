@@ -19,4 +19,13 @@ class BlogController extends Controller
         return $this -> render('FrontOfficeBundle:Blog:showArticles.html.twig',
             array('showArticles'=>$showArticles));
     }
+
+    public function showOneArticleAction($id)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $showOneArticle = $em -> getRepository('FrontOfficeBundle:Article')->find($id);
+
+        return $this -> render('FrontOfficeBundle:Blog:showOneArticle.html.twig',
+            array('showOneArticle'=>$showOneArticle));
+    }
 }

@@ -21,7 +21,7 @@
                             <small>{{ article.dateCreated | date('now') }}</small>
                         </h2>
                         <p>{{ article.content }}</p>
-                        <a href="#" class="btn btn-default btn-lg">Lire la suite de l'article</a>
+                        <a href="{{ path('front_office_blog_showOneArticle',{id:article.id}) }}" class="btn btn-default btn-lg">Lire la suite de l'article</a>
                         <hr>
                     </div>
                     {% endfor %}

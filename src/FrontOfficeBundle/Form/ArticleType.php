@@ -16,10 +16,9 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('authorName')
-            ->add('dateCreated')
             ->add('title')
             ->add('content')
-            ->add('dateUpdated')
+            ->add('valider','submit')
         ;
     }
     

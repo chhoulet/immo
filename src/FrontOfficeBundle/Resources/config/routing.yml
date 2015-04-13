@@ -34,6 +34,10 @@ front_office_blog_showArticles:
     path:     /showArticles
     defaults: { _controller:FrontOfficeBundle:Blog:showArticles}
 
+front_office_blog_showOneArticle:
+    path:     /showOneArticle/{id}
+    defaults: { _controller: FrontOfficeBundle:Blog:showOneArticle}
+
 #Routes des templates du footer -CGU Mentions légales 
 front_office_static_conditions_generales_ventes:
     path:     /conditionsGenerales

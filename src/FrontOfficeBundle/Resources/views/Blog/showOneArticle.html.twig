@@ -1,0 +1,16 @@
+{% extends 'FrontOfficeBundle::layout.html.twig' %}
+
+    {% block content %}
+
+        <div class="col-lg-12 text-center">
+            <img class="img-responsive img-border img-full" src="img/slide-1.jpg" alt="">
+            <h2>{{ showOneArticle.title }}
+                <br>
+                <small>{{ showOneArticle.dateCreated | date('now') }}</small>
+            </h2>
+            <p>{{ showOneArticle.content }}</p>
+
+            <hr>
+        </div>
+
+    {% endblock %}

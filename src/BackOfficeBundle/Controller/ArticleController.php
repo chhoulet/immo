@@ -1,11 +1,12 @@
 <?php
 
-namespace FrontOfficeBundle\Controller;
+namespace BackOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use FrontOfficeBundle\Entity\ArticleType;
-use FrontOfficeBundle\Entity\CommentType;
+use FrontOfficeBundle\Entity\Article;
+use FrontOfficeBundle\Form\ArticleType;
+use FrontOfficeBundle\Form\CommentType;
 
 Class ArticleController extends Controller
 {
@@ -28,7 +29,5 @@ Class ArticleController extends Controller
 
         return $this ->render('BackOfficeBundle:Article:createArticle.html.twig',
             array('formArticle'=>$formArticle->createView()));
-
-
     }
 }
