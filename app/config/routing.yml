@@ -1,3 +1,7 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 front_office:
     resource: "@FrontOfficeBundle/Resources/config/routing.yml"
     prefix:   /
