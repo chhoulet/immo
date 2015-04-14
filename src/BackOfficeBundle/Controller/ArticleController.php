@@ -21,7 +21,7 @@ Class ArticleController extends Controller
 
         if($formArticle->isValid())
         {
-            $article->setDateCreated(new \datetime('now'));
+            $article->setDateCreated(new \DateTime('now'));
             $em->persist($formArticle);
             $em->flush();
 
