@@ -130,4 +130,27 @@ class Comment
     {
         return $this->content;
     }
+
+    /**
+     * Set article
+     *
+     * @param \FrontOfficeBundle\Entity\Article $article
+     * @return Comment
+     */
+    public function setArticle(\FrontOfficeBundle\Entity\Article $article = null)
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * Get article
+     *
+     * @return \FrontOfficeBundle\Entity\Article 
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
 }

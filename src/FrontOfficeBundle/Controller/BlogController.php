@@ -20,12 +20,27 @@ class BlogController extends Controller
             array('showArticles'=>$showArticles));
     }
 
-    public function showOneArticleAction($id)
+    public function showOneArticleAction(Request $request,$id)
     {
         $em = $this -> getDoctrine()->getManager();
         $showOneArticle = $em -> getRepository('FrontOfficeBundle:Article')->find($id);
+        $comment = new comment();
+        $formComment = $this -> createForm(new CommentType(), $comment);
+
+        $formComment -> handleRequest($request);
+        if( $formComment->isValid())
+        {
+            $comment -> setArticle($showOneArticle);
+            $comment -> setDateCreated(new \datetime('now'));
+            $em ->persist($comment);
+            $em->flush();
+
+            return $this ->redirect($this->generateUrl('front_office_blog_showOneArticle'));
+
+        }
 
         return $this -> render('FrontOfficeBundle:Blog:showOneArticle.html.twig',
-            array('showOneArticle'=>$showOneArticle));
+            array('showOneArticle'=>$showOneArticle,
+                  'formComment'=>$formComment->createView()));
     }
 }

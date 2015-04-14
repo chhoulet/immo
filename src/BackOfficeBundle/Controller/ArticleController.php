@@ -5,6 +5,7 @@ namespace BackOfficeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FrontOfficeBundle\Entity\Article;
+use FrontOfficeBundle\Entity\Comment;
 use FrontOfficeBundle\Form\ArticleType;
 use FrontOfficeBundle\Form\CommentType;
 
