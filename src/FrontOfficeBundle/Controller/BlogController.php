@@ -31,7 +31,7 @@ class BlogController extends Controller
         if( $formComment->isValid())
         {
             $comment -> setArticle($showOneArticle);
-            $comment -> setDateCreated(new \datetime('now'));
+            $comment -> setDateCreated(new \DateTime('now'));
             $em ->persist($comment);
             $em->flush();
 
