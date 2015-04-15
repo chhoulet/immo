@@ -16,6 +16,10 @@ front_office_create_annonce:
     path:    /createAnnonce
     defaults: { _controller: FrontOfficeBundle:Annonce:createAnnonce}
 
+front_office_tri_annonces:
+    path:    /triAnnonces
+    defaults: { _controller: FrontOfficeBundle:Annonce:triAnnonces}
+
 #Routes des templates de la navbar :
 front_office_layout_navbar:
     path:     /navbar

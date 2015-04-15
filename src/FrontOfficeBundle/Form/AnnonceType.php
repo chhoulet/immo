@@ -122,6 +122,7 @@ class AnnonceType extends AbstractType
                                                                        '2'=> 'Chauffage gaz',
                                                                        '3'=> 'Chauffage électrique',
                                                                        '4'=> 'Chauffage individuel')))
+
             ->add('Enregistrer','submit',      array('attr'  => array('style'=>'margin-top:30px;margin-left:600px;width:85px;border:solid black 2px; border-radius:7px;')))
                                                 ;
     }

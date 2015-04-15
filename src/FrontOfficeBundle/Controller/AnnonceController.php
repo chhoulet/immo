@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use FrontOfficeBundle\Entity\Annonce;
 use FrontOfficeBundle\Form\AnnonceType;
+use FrontOfficeBundle\Form\CriteresType;
 
 class AnnonceController extends Controller
 {
@@ -14,7 +15,8 @@ class AnnonceController extends Controller
         $em = $this -> getDoctrine()->getManager();
         $showAnnonces = $em -> getRepository('FrontOfficeBundle:Annonce')->findAll();
 
-        return $this -> render('FrontOfficeBundle:Annonce:showAnnonces.html.twig', array('showAnnonces'=>$showAnnonces));
+        return $this -> render('FrontOfficeBundle:Annonce:showAnnonces.html.twig',
+            array('showAnnonces'=>$showAnnonces));
     }
 
     public function showOneAnnonceAction($id)
@@ -22,7 +24,8 @@ class AnnonceController extends Controller
         $em = $this -> getDoctrine() ->getManager();
         $showOneAnnonce = $em ->getRepository('FrontOfficeBundle:Annonce')->find($id);
 
-        return $this -> render('FrontOfficeBundle:Annonce:showOneAnnonce.html.twig', array('showOneAnnonce'=>$showOneAnnonce));
+        return $this -> render('FrontOfficeBundle:Annonce:showOneAnnonce.html.twig',
+            array('showOneAnnonce'=>$showOneAnnonce));
     }
 
     public function createAnnonceAction(Request $request)
@@ -45,7 +48,30 @@ class AnnonceController extends Controller
             return $this -> redirect($this->generateUrl('front_office_homepage'));
         }
 
-        return $this -> render('FrontOfficeBundle:Annonce:createAnnonce.html.twig',array('formAnnonce'=>$formAnnonce->createView()));
+        return $this -> render('FrontOfficeBundle:Annonce:createAnnonce.html.twig',
+            array('formAnnonce'=>$formAnnonce->createView()));
+    }
+
+    public function triAnnoncesAction(Request $request)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $formCriteres = $this -> createForm(new CriteresType);
+
+        $formCriteres ->handleRequest($request);
+
+        if($formCriteres ->isValid()){
+            $data = $formCriteres ->getData();
+            $datas = $em ->getRepository('FrontOfficeBundle:Annonce')
+                ->criteres($data['price'], $data['estate'], $data['rooms'],
+                           $data['surfaceArea'], $data['colocation'], $data['bailDuration'],
+                           $data['disponibility'], $data['arrangement'], $data['building'],
+                           $data['charge'], $data['dependancy'], $data['externArea'],
+                           $data['heating'], $data['area']);
+
+            return $this-> render('FrontOfficeBundle:Annonce:showAnnonces.html.twig', array('showAnnonces' => $datas));
+        }
+
+        return $this -> render('FrontOfficeBundle:Annonce:triAnnonces.html.twig', array('formTriCriteres'=> $formCriteres->createView()));
     }
 
 }
