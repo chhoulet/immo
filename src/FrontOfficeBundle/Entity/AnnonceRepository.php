@@ -26,4 +26,64 @@ class AnnonceRepository extends EntityRepository
 
         return $query -> getResult();
     }
+
+    public  function countAnnonces()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT COUNT(a.id)
+            FROM FrontOfficeBundle:Annonce a');
+
+        return $query -> getSingleScalarResult();
+    }
+
+    public function annoncesArea($area)
+    {
+        $query = $this ->getEntityManager()->createQuery('
+            SELECT a
+            FROM FrontOfficeBundle:Annonce a
+            JOIN a.area b
+            WHERE b.nameArea LIKE :arrondt')
+        ->setParameter('arrondt', $area);
+
+        return $query -> getResult();
+    }
+
+    public function criteres($price, $estate, $nbRooms, $surfaceArea,
+                             $colocation, $bailDuration, $disponibility,
+                             $arrangement, $building, $charge, $dependancy,
+                             $externArea, $heating, $area)
+    {
+        $query = $this ->getEntityManager()->createQuery('
+            SELECT a
+            FROM FrontOfficeBundle:Annonce a
+            WHERE a.price LIKE :prix
+            AND a.estate LIKE :estate
+            AND a.nbRooms LIKE :rooms
+            AND a.surfaceArea LIKE :surfaceArea
+            AND a.colocation LIKE :colocation
+            AND a.bailDuration LIKE :bailDuration
+            AND a.disponibility LIKE :disponibility
+            AND a.arrangement LIKE :arrangement
+            AND a.building LIKE :building
+            AND a.dependancy LIKE :dependancy
+            AND a.externArea LIKE :externArea
+            AND a.heating LIKE :heating
+            AND a.area LIKE :area')
+        ->setParameter('prix', $price)
+        ->setParameter('estate', $estate)
+        ->setParameter('rooms', $nbRooms)
+        ->setParameter('surfaceArea', $surfaceArea)
+        ->setParameter('colocation', $colocation)
+        ->setParameter('bailDuration', $bailDuration)
+        ->setParameter('disponibility', $disponibility)
+        ->setParameter('arrangement', $arrangement)
+        ->setParameter('building', $building)
+        ->setParameter('charge', $charge)
+        ->setParameter('dependancy', $dependancy)
+        ->setParameter('externArea', $externArea)
+        ->setParameter('heating', $heating)
+        ->setParameter('area', $area);
+
+        return $query -> getResult();
+    }
 }
