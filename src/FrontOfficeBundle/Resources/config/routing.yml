@@ -1,6 +1,6 @@
 #Gestion de la homepage :
 front_office_homepage:
-    path:     /homepageFrontOffice
+    path:     /
     defaults: { _controller: FrontOfficeBundle:Homepage:homepage }
 
 #Gestion des Annonces :
