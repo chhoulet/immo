@@ -57,9 +57,10 @@ class CriteresType extends AbstractType
                                                        'choices'=> array('0'=> 'Immédiatement',
                                                                          '1'=> 'ultérieurement')))
 
-            ->add('arrangement', 'choice',       array('label'  =>'Aménagement :',
-                                                       'attr'   => array('class'=> 'form-control'),
-                                                       'choices'=> array('0'=> 'Parquet',
+            ->add('arrangement', 'choice',       array('label'    =>'Aménagement :',
+                                                       'attr'     => array('class'=> 'form-control'),
+                                                       'multiple' => true,
+                                                       'choices'  => array('0'=> 'Parquet',
                                                                          '1'=> 'Moulures',
                                                                          '2'=> 'Cheminée',
                                                                          '3'=> 'Double Vitrage',
@@ -118,13 +119,14 @@ class CriteresType extends AbstractType
         ;
     }
 
+//    Cette fonction convertit les données du formulaire en entite objet, parfait lorsqu'on crée un formulaire de depot ou de creation. Lorsqu'il n'y a pas d'insertion dans la BDD, il faut la supprimer !
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FrontOfficeBundle\Entity\Annonce'
+            //'data_class' => 'FrontOfficeBundle\Entity\Annonce'
         ));
     }
 

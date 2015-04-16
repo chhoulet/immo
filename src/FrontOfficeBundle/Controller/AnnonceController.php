@@ -54,19 +54,20 @@ class AnnonceController extends Controller
 
     public function triAnnoncesAction(Request $request)
     {
-        $em = $this -> getDoctrine()->getManager();
+        $em = $this -> getDoctrine();
         $formCriteres = $this -> createForm(new CriteresType);
 
         $formCriteres ->handleRequest($request);
 
         if($formCriteres ->isValid()){
             $data = $formCriteres ->getData();
+            var_dump($data);
             $datas = $em ->getRepository('FrontOfficeBundle:Annonce')
-                ->criteres($data['price'], $data['estate'], $data['rooms'],
+                ->criteres($data['price'], $data['estate'], $data['nbRooms'],
                            $data['surfaceArea'], $data['colocation'], $data['bailDuration'],
                            $data['disponibility'], $data['arrangement'], $data['building'],
                            $data['charge'], $data['dependancy'], $data['externArea'],
-                           $data['heating'], $data['area']);
+                           $data['heating'] /*$data['area']*/);
 
             return $this-> render('FrontOfficeBundle:Annonce:showAnnonces.html.twig', array('showAnnonces' => $datas));
         }

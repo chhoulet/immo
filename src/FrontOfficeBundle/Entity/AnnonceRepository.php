@@ -48,10 +48,9 @@ class AnnonceRepository extends EntityRepository
         return $query -> getResult();
     }
 
-    public function criteres($price, $estate, $nbRooms, $surfaceArea,
-                             $colocation, $bailDuration, $disponibility,
-                             $arrangement, $building, $charge, $dependancy,
-                             $externArea, $heating, $area)
+    public function criteres($price, $estate, $nbRooms, $surfaceArea, $colocation,
+                             $bailDuration, $disponibility, $arrangement, $building, $charge,
+                             $dependancy, $externArea, $heating /*$area*/)
     {
         $query = $this ->getEntityManager()->createQuery('
             SELECT a
@@ -65,10 +64,10 @@ class AnnonceRepository extends EntityRepository
             AND a.disponibility LIKE :disponibility
             AND a.arrangement LIKE :arrangement
             AND a.building LIKE :building
+            AND a.charge LIKE :charge
             AND a.dependancy LIKE :dependancy
             AND a.externArea LIKE :externArea
-            AND a.heating LIKE :heating
-            AND a.area LIKE :area')
+            AND a.heating LIKE :heating')
         ->setParameter('prix', $price)
         ->setParameter('estate', $estate)
         ->setParameter('rooms', $nbRooms)
@@ -81,8 +80,8 @@ class AnnonceRepository extends EntityRepository
         ->setParameter('charge', $charge)
         ->setParameter('dependancy', $dependancy)
         ->setParameter('externArea', $externArea)
-        ->setParameter('heating', $heating)
-        ->setParameter('area', $area);
+        ->setParameter('heating', $heating);
+//        ->setParameter('area', $area);
 
         return $query -> getResult();
     }
