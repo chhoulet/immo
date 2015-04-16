@@ -32,6 +32,7 @@ class AnnonceController extends Controller
     {
         #Formulaire de dépôt d'annonce :
         $em = $this -> getDoctrine()->getManager();
+        $content = 'Une nouvelle annonce a été déposée sur le site !';
         $annonce = new Annonce();
         $formAnnonce = $this -> createForm(new AnnonceType(),$annonce);
 
@@ -44,6 +45,7 @@ class AnnonceController extends Controller
             $em -> flush();
 
             $this -> get('session')-> getFlashBag('succes','Votre annonce a bien été ajoutée !');
+            $this -> get('front_office.services.mail')->send($content);
 
             return $this -> redirect($this->generateUrl('front_office_homepage'));
         }
