@@ -2,26 +2,26 @@ user_homepage:
     path:     /hello/{name}
     defaults: { _controller: UserBundle:Default:index }
 
-#Formulaire d'identitfication :
+#Formulaire d'identitfication : login
 fos_user_security:
    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-#Affichage des données utilisateur :
+#Affichage des données utilisateur : profile
 fos_user_profile:
    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
    prefix: /profile
 
-#Formulaire de creation :
+#Formulaire de creation : registration
 fos_user_register:
    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
    prefix: /register
 
-#Formulaire de remise à 0 (lorsque perte de password, envoi de mail...) :
+#Formulaire de remise à 0 (lorsque perte de password, envoi de mail...) : resetting
 fos_user_resetting:
    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
    prefix: /resetting
 
-#formulaire de changement de mot de passe :
+#formulaire de changement de mot de passe : changePassword
 fos_user_change_password:
    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
    prefix: /profile
