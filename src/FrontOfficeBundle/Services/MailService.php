@@ -2,7 +2,7 @@
 
 namespace FrontOfficeBundle\Services;
 
-Class MailService
+class MailService
 {
     private $mailer;
 

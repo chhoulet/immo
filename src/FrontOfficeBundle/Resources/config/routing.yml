@@ -20,6 +20,11 @@ front_office_tri_annonces:
     path:    /triAnnonces
     defaults: { _controller: FrontOfficeBundle:Annonce:triAnnonces}
 
+#Routes du Basket :
+front_office_basket_add:
+    path:    /add
+    defaults: { _controller: FrontOfficeBundle:Basket:addAnnonce}
+
 #Routes des templates de la navbar :
 front_office_layout_navbar:
     path:     /navbar
