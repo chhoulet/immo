@@ -25,6 +25,10 @@ front_office_basket_add:
     path:    /add
     defaults: { _controller: FrontOfficeBundle:Basket:addAnnonce}
 
+front_office_basket_list:
+    path:    /list
+    defaults: { _controller: FrontOfficeBundle:Basket:listAnnonce}
+
 #Routes des templates de la navbar :
 front_office_layout_navbar:
     path:     /navbar

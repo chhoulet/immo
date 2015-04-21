@@ -35,4 +35,22 @@ class Basket
     //On définit le contenu du nouveau panier :
         $this -> session ->set('basket',$basket);
     }
+
+    public function listAnnonces()
+    {
+        $basket = $this -> session -> get('basket');
+        $annonces = array();
+
+        foreach($basket as $item)
+        {
+            $annonces[] = $this -> em ->getRepository('FrontOfficeBundle:Annonce')->find($item);
+        }
+
+        return $annonces;
+    }
+
+    public function countAnnonces()
+    {
+        return count($this->session->get('basket'));
+    }
 }

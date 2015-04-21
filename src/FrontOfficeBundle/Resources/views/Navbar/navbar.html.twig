@@ -35,10 +35,19 @@
                         <a href="{{ path('front_office_layout_about') }}">About</a>
                     </li>
                     <li>
+                        {{ nbAnnonces }} annonces dans votre panier
+                    </li>
+                    <li>
                         <a href="{{ path('front_office_blog_showArticles') }}">Blog</a>
                     </li>
                     <li>
                         <a href="{{ path('front_office_layout_contact') }}">Contact</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('front_office_basket_list') }}">Voir mon panier</a>
+                    </li>
+                    <li>
+                        {{  render(controller('FrontOfficeBundle:Basket:countAnnonces')) }}
                     </li>
             </ul>
         </div>
