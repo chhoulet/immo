@@ -6,11 +6,20 @@
             <img class="img-responsive img-border img-full" src="img/slide-1.jpg" alt="">
             <h2>{{ showOneArticle.title }}
                 <br>
-                <small>{{ showOneArticle.dateCreated | date('now') }}</small>
+                <small>{{ showOneArticle.dateCreated | date('d-m-Y H:i:s') }}</small>
             </h2>
             <p>{{ showOneArticle.content }}</p>
 
             <hr>
+            <h3>Liste des commentaires :</h3><br><br>
+
+                {% for com in  showOneArticle.comment %}
+
+                    {{ com.username }}<br><br>
+                    {{ com.dateCreated | date('d-m-Y H:i:s') }}<br><br>
+                    {{ com.content }}<br><br>
+
+                {% endfor %}
 
             <h3>Ajoutez un commentaire :</h3>
 
