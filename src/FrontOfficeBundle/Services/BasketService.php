@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Session\Session;
 use FrontOfficeBundle\Entity\Annonce;
 
-class Basket
+class BasketService
 {
     protected $session;
 
@@ -14,8 +14,8 @@ class Basket
 
     public function __construct($session, EntityManager $em)
     {
-        return $this -> session = $session;
-        return $this -> em -> $em;
+        $this -> session = $session;
+        $this -> em = $em;
     }
 
     public function add($id)
@@ -31,6 +31,8 @@ class Basket
 
     //On alimente le panier à chaque exécution de la fonction, les id s'accumulent :
         $basket[] = $id;
+        //Cette syntaxe est equivalente à :
+        //  array_push($basket,$id);(dans le panier $basket, on ajoute les id)
 
     //On définit le contenu du nouveau panier :
         $this -> session ->set('basket',$basket);
@@ -40,6 +42,10 @@ class Basket
     {
         $basket = $this -> session -> get('basket');
         $annonces = array();
+
+        if ($basket === null) {
+            return [];
+        }
 
         foreach($basket as $item)
         {

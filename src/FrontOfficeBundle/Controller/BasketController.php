@@ -19,14 +19,14 @@ class BasketController extends Controller
 
     public function listAnnonceAction()
     {
-        $annonces = $this -> get('FrontOfficeBundle\Services\BasketService')->list();
+        $annonces = $this -> get('front_office.services.basket')->listAnnonces();
 
         return $this->render('FrontOfficeBundle:Basket:list.html.twig', array('annonce'=> $annonces));
     }
 
     public function countAnnoncesAction()
     {
-        $nbAnnonces = $this -> get('FrontOfficeBundle\Services\BasketService')->countAnnonces();
+        $nbAnnonces = $this -> get('front_office.services.basket')->countAnnonces();
 
         return $this -> render('FrontOfficeBundle:Basket:count.html.twig', array('nbAnnonces'=> $nbAnnonces));
     }

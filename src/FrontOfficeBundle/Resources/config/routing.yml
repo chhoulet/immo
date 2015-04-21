@@ -22,7 +22,7 @@ front_office_tri_annonces:
 
 #Routes du Basket :
 front_office_basket_add:
-    path:    /add
+    path:    /add/{id}
     defaults: { _controller: FrontOfficeBundle:Basket:addAnnonce}
 
 front_office_basket_list:
