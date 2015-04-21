@@ -23,7 +23,7 @@
                     </li>
                 {% else %}
                     <li>
-                        <a href="{{ path('fos_user_registration_register') }}">Connection</a>
+                        <a href="{{ path('fos_user_security_login') }}">Connection</a>
                     </li>
                 {% endif %}
                 {% if(is_granted('ROLE_ADMIN')) %}
@@ -35,7 +35,7 @@
                         <a href="{{ path('front_office_layout_about') }}">About</a>
                     </li>
                     <li>
-                        {{ nbAnnonces }} annonces dans votre panier
+                        {#{{ nbAnnonces }} annonces dans votre panier#}
                     </li>
                     <li>
                         <a href="{{ path('front_office_blog_showArticles') }}">Blog</a>
@@ -47,7 +47,7 @@
                         <a href="{{ path('front_office_basket_list') }}">Voir mon panier</a>
                     </li>
                     <li>
-                        {{  render(controller('FrontOfficeBundle:Basket:countAnnonces')) }}
+                        {#{{  render(controller('FrontOfficeBundle:Basket:countAnnonces')) }}#}
                     </li>
             </ul>
         </div>

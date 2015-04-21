@@ -1,8 +1,8 @@
 services:
     front_office.services.mail:
-        class: FrontOfficeBundle\Services\MailService;
+        class: FrontOfficeBundle\Services\MailService
         arguments: [@mailer]
 
-    front-office.services.basket:
-        class: FrontOfficeBundle\Services\BasketService;
+    front_office.services.basket:
+        class: FrontOfficeBundle\Services\BasketService
         arguments: [@session, @doctrine.orm.default_entity_manager]

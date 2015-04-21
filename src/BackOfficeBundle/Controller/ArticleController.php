@@ -22,10 +22,10 @@ Class ArticleController extends Controller
         if($formArticle->isValid())
         {
             $article->setDateCreated(new \DateTime('now'));
-            $em->persist($formArticle);
+            $em->persist($article);
             $em->flush();
 
-            return $this -> redirect($this->generateUrl('#'));
+            return $this -> redirect($this->generateUrl('front_office_blog_showArticles'));
         }
 
         return $this ->render('BackOfficeBundle:Article:createArticle.html.twig',

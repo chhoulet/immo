@@ -24,7 +24,7 @@ class BlogController extends Controller
     {
         $em = $this -> getDoctrine()->getManager();
         $showOneArticle = $em -> getRepository('FrontOfficeBundle:Article')->find($id);
-        $comment = new comment();
+        $comment = new Comment();
         $formComment = $this -> createForm(new CommentType(), $comment);
 
         $formComment -> handleRequest($request);
